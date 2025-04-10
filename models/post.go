@@ -25,9 +25,14 @@ func GetByID(id int) (*Post, error) {
 	return &post, err
 }
 
-func GetPaginated(limit, offset int) ([]Post, error) {
+func GetPaginated(limit, offset int,status string) ([]Post, error) {
 	var posts []Post
-	err := config.DB.Limit(limit).Offset(offset).Find(&posts).Error
+	query := config.DB
+	if(status!=""){
+		query = query.Where("status",status)	
+	}
+	err := query.Limit(limit).Offset(offset).Find(&posts).Error
+	
 	return posts, err
 }
 

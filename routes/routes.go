@@ -9,9 +9,9 @@ import (
 func RegisterRoutes(router *gin.Engine) {
 	api := router.Group("/article")
 	{
-		api.POST("/", controllers.CreatePost)
-		api.GET("/:limit/:offset", controllers.GetAllPostsWithPagination)
+		api.POST("", controllers.CreatePost)
 		api.GET("/:id", controllers.GetPostByID)
+		api.GET("pagination/:limit/:offset", controllers.GetAllPostsWithPagination)
 		api.PUT("/:id", controllers.UpdatePost)
 		api.DELETE("/:id", controllers.DeletePost)
 	}

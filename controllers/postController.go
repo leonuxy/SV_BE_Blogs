@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -49,8 +50,9 @@ func CreatePost(c *gin.Context) {
 func GetAllPostsWithPagination(c *gin.Context) {
 	limit, _ := strconv.Atoi(c.Param("limit"))
 	offset, _ := strconv.Atoi(c.Param("offset"))
-
-	posts, err := models.GetPaginated(limit, offset)
+	filter := c.Query("filter")
+	fmt.Println(filter)
+	posts, err := models.GetPaginated(limit, offset,filter)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch posts"})
 		return
@@ -92,5 +94,4 @@ func DeletePost(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete post"})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"message": "Post deleted successfully"})
 }
