@@ -10,8 +10,6 @@ A RESTful API backend for a blog application built with Go, Gin, and GORM.
 - ORM with GORM
 - Environment configuration via `.env`
 - MySQL database
-- Clean project architecture
-- Swagger documentation (optional)
 
 ---
 
