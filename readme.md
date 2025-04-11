@@ -1,3 +1,6 @@
+Postman Link : https://gm8888-4541.postman.co/workspace/GM-Workspace~06ef7a90-b7c2-41d3-8a6d-55b1a295a3d0/collection/23706900-0dd114db-9547-4f47-b9d2-f4c997c6fda3?action=share&creator=23706900
+
+
 # Backend Blogs
 
 A RESTful API backend for a blog application built with Go, Gin, and GORM.
